@@ -9,7 +9,8 @@
         var self = this;
 
         var setting = {
-            origin: {x: 100, y: 100},
+            // origin: {x: 100, y: 100},
+            width: 200,
             radius: 75,
             baseColor: '#999',
             coverColor: '#f00',
@@ -27,14 +28,15 @@
             });
         }
 
+        var centerLen = setting.width / 2;
         var draw = SVG(elm);
         var p2 = draw
                     .circle(2 * setting.radius)
-                    .center(setting.origin.x, setting.origin.y)
+                    .center(centerLen, centerLen)
                     .attr({'fill':'none', 'stroke':setting.baseColor,'stroke-width':setting.strokeWidth})
                     .transform({rotation: setting.rotation});
         var p1 = draw.path('M 0,0')
-                    .center(setting.origin.x, setting.origin.y)
+                    .center(centerLen, centerLen)
                     .attr({'fill':'none', 'stroke':setting.coverColor,'stroke-width':setting.strokeWidth})
                     .transform({rotation: setting.rotation});
 
@@ -60,8 +62,8 @@
             var y;
             var path;
             var conf = {
-                ox: setting.origin.x,  // 中心 X
-                oy: setting.origin.y,  // 中心 Y
+                ox: centerLen,         // 中心 X
+                oy: centerLen,         // 中心 Y
                 r: setting.radius,     // 半徑
                 R: 2 * setting.radius, // 直徑
                 c: 1,                  // 順時針
