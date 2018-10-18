@@ -131,7 +131,7 @@
             return self;
         };
         self.increment = function (diff) {
-            if (!isNumeric(val)) {
+            if (!isNumeric(diff)) {
                 throw new Error('Not a number');
             }
             if (diff < 0) {
@@ -146,10 +146,10 @@
             return self;
         };
         self.decrement = function (diff) {
-            if (!isNumeric(val)) {
+            if (!isNumeric(diff)) {
                 throw new Error('Not a number');
             }
-            if (diff > 0) {
+            if (diff < 0) {
                 diff = 0;
             }
             if (diff === undefined) {
